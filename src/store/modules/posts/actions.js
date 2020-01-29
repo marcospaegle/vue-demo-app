@@ -5,7 +5,7 @@ const path = '/api/v1/posts'
 function handleWithSuccessResponse (response) {
   const posts = []
   for (const post of response.data) {
-    posts.push(post.attributes)
+    posts.push(post)
   }
 
   return posts
@@ -18,8 +18,6 @@ export default {
         const posts = handleWithSuccessResponse(response)
         commit('setPosts', posts)
       })
-      .catch(function (error) {
-        console.error(error)
-      })
+      .catch(function (error) { console.error(error) })
   }
 }
